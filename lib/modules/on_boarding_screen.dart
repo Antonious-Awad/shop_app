@@ -28,20 +28,29 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     BoardingModel(
         "assets/images/onboard_1.jpg", "On Board 3 Title", "On Board 3 body"),
   ];
+  bool isLast = false;
 
   @override
   Widget build(BuildContext context) {
-    bool isLast = false;
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        actions: [
+          TextButton(
+            onPressed: () {
+              navigateAndDispose(context, LoginScreen());
+            },
+            child: Text("SKIP"),
+          ),
+        ],
+      ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
             Expanded(
               child: PageView.builder(
-                onPageChanged: (value) {
-                  if (value == boarding.length - 1) {
+                onPageChanged: (index) {
+                  if (index == boarding.length - 1) {
                     setState(() {
                       isLast = true;
                     });
@@ -77,7 +86,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 FloatingActionButton(
                   onPressed: () {
                     if (isLast) {
-                      navigateTo(context, LoginScreen());
+                      navigateAndDispose(context, LoginScreen());
                     } else {
                       boardingControl.nextPage(
                           duration: Duration(
