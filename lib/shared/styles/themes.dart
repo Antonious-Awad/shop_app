@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:shop_app/shared/styles/colors.dart';
 
 ThemeData lightTheme = ThemeData(
-  primarySwatch: Colors.deepOrange,
+  primarySwatch: defaultColor,
   floatingActionButtonTheme:
-      FloatingActionButtonThemeData(backgroundColor: Colors.deepOrange),
+      FloatingActionButtonThemeData(
+        // backgroundColor: defaultColor,
+        foregroundColor: Colors.white
+        ),
   scaffoldBackgroundColor: Colors.white,
   appBarTheme: AppBarTheme(
       iconTheme: IconThemeData(
@@ -22,7 +26,7 @@ ThemeData lightTheme = ThemeData(
       centerTitle: true),
   bottomNavigationBarTheme: BottomNavigationBarThemeData(
     type: BottomNavigationBarType.fixed,
-    selectedItemColor: Colors.deepOrange,
+    selectedItemColor: defaultColor,
     elevation: 30,
   ),
   textTheme: TextTheme(
@@ -38,9 +42,9 @@ ThemeData darkTheme = ThemeData(
       bodyText1: TextStyle(
           fontSize: 18.0, fontWeight: FontWeight.w600, color: Colors.white)),
   scaffoldBackgroundColor: HexColor('333739'),
-  primarySwatch: Colors.deepOrange,
+  primarySwatch: defaultColor,
   floatingActionButtonTheme:
-      FloatingActionButtonThemeData(backgroundColor: Colors.deepOrange),
+      FloatingActionButtonThemeData(/*backgroundColor: Colors.deepOrange*/),
   appBarTheme: AppBarTheme(
       iconTheme: IconThemeData(
         color: Colors.white,
@@ -57,7 +61,7 @@ ThemeData darkTheme = ThemeData(
   bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: HexColor('333739'),
       type: BottomNavigationBarType.fixed,
-      selectedItemColor: Colors.deepOrange,
+      selectedItemColor: defaultColor,
       elevation: 30,
       unselectedItemColor: Colors.grey),
 );
